@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
 # for the second line, when we send a request that starts with movies,
 # django will chop off the prefix movies/, send the remaining string to module movies.url.py
 urlpatterns = [
+    path('', views.home),
     path('admin/', admin.site.urls),
     path('movies/', include('movies.urls'))
 ]
